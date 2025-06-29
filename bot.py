@@ -90,6 +90,6 @@ async def submitchallenge(ctx):
         print(f"Error during challenge submission: {e}")
 
 # Run the bot
-mport os  # Add this near the top if it’s not already there
+import os  # Add this near the top if it’s not already there
 
 bot.run(os.getenv("BOT_TOKEN"))
