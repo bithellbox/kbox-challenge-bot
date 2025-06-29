@@ -90,4 +90,6 @@ async def submitchallenge(ctx):
         print(f"Error during challenge submission: {e}")
 
 # Run the bot
-bot.run("MTM4ODk3NDUzODM3NjYxNDAzOA.GnuhJ7.V_jngY7TLsZYanXxoW01u79I32L8K7YNEq4-eo")  # Replace with your actual token
+mport os  # Add this near the top if it’s not already there
+
+bot.run(os.getenv("BOT_TOKEN"))
