@@ -1,7 +1,8 @@
 import discord
 from discord.ext import commands
 import json
-import os
+import os  # Add this near the top if it’s not already there
+
 
 # Set up intents and the bot
 intents = discord.Intents.default()
