@@ -93,3 +93,24 @@ async def submitchallenge(ctx):
 import os  # Add this near the top if it’s not already there
 
 bot.run(os.getenv("BOT_TOKEN"))
+
+import os
+import threading
+from http.server import HTTPServer, BaseHTTPRequestHandler
+
+# Minimal web server to keep Render happy
+class Handler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        self.send_response(200)
+        self.end_headers()
+        self.wfile.write(b"OK")
+
+def run_webserver():
+    server = HTTPServer(('0.0.0.0', int(os.environ.get('PORT', 8000))), Handler)
+    server.serve_forever()
+
+# Start web server in background thread
+threading.Thread(target=run_webserver, daemon=True).start()
+
+# Then start your bot
+bot.run(os.getenv("BOT_TOKEN"))
